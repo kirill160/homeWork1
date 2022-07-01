@@ -1,8 +1,9 @@
-package com.company.lesson;
+package Kirill.practic2;
+
 
 public class Fractions {
-    private int numerator;
-    private int denominator;
+    private double numerator;
+    private double denominator;
     private  double summ;
     Fractions( int numerator, int denominator){
         this.numerator = numerator;
@@ -17,25 +18,24 @@ public class Fractions {
         this.denominator = denominator;
     }
 
-    public int getDenominator() {
+    public double getDenominator() {
         return denominator;
     }
 
-    public int getNumerator() {
+    public double getNumerator() {
         return numerator;
     }
     public double function( Fractions f){
         if (f.denominator == 0 ){
             denominator = 1;
         }
-            summ = numerator / f.denominator;
+        summ = numerator / f.denominator;
         return summ;
     }
     public double adiition (Fractions f){
         double denominatorСalculation = denominator * f.denominator;
-        double divisorCalculation = f.denominator * numerator;
-        double summ2 = denominatorСalculation + divisorCalculation;
-        return summ2;
+        double additionCalculation = (denominatorСalculation  / denominator * numerator) + (denominatorСalculation / f.denominator * f.numerator);
+        return additionCalculation;
     }
     public double subtraction (){
         return 0;
@@ -54,9 +54,11 @@ public class Fractions {
 }
 class Test{
     public static void main(String[] args) {
-        Fractions fractions = new Fractions(83,0);
-        Fractions fractions1 = new Fractions(15, 96);
+        Fractions fractions = new Fractions(1,5);
+        Fractions fractions1 = new Fractions(2, 3);
         fractions.function(fractions);
+        System.out.println(fractions.adiition(fractions1));
+
         System.out.println(fractions.toString());
     }
 }
