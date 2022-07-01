@@ -2,8 +2,8 @@ package Kirill.practic2;
 
 
 public class Fractions {
-    private double numerator;
-    private double denominator;
+    private int numerator;
+    private int denominator;
     private  double summ;
     Fractions( int numerator, int denominator){
         this.numerator = numerator;
@@ -18,27 +18,29 @@ public class Fractions {
         this.denominator = denominator;
     }
 
-    public double getDenominator() {
+    public int getDenominator() {
         return denominator;
     }
 
-    public double getNumerator() {
+    public int getNumerator() {
         return numerator;
     }
-    public double function( Fractions f){
-        if (f.denominator == 0 ){
+    public double function(){
+        if (denominator == 0 ){
             denominator = 1;
         }
-        summ = numerator / f.denominator;
+        summ = numerator / denominator;
         return summ;
     }
     public double adiition (Fractions f){
         double denominatorСalculation = denominator * f.denominator;
-        double additionCalculation = (denominatorСalculation  / denominator * numerator) + (denominatorСalculation / f.denominator * f.numerator);
+        double additionCalculation = ((denominatorСalculation  / denominator * numerator) + (denominatorСalculation / f.denominator * f.numerator)) / denominatorСalculation;
         return additionCalculation;
     }
-    public double subtraction (){
-        return 0;
+    public double subtraction (Fractions f){
+        double denominatorСalculation = denominator * f.denominator;
+        double subtractionCalculation = ((denominatorСalculation  / denominator * numerator) - (denominatorСalculation / f.denominator * f.numerator)) / denominatorСalculation;
+        return subtractionCalculation;
 
     }
     @Override
@@ -47,18 +49,18 @@ public class Fractions {
                 "numerator " + numerator +
                 '/' +
                 "denaminator " + denominator+
-                "summ " + summ +
                 '}';
 
     }
 }
 class Test{
     public static void main(String[] args) {
-        Fractions fractions = new Fractions(1,5);
-        Fractions fractions1 = new Fractions(2, 3);
-        fractions.function(fractions);
+        Fractions fractions = new Fractions(1,2);
+        Fractions fractions1 = new Fractions(1, 2);
+        fractions.function();
+        fractions1.function();
         System.out.println(fractions.adiition(fractions1));
-
+        System.out.println(fractions.subtraction(fractions1));
         System.out.println(fractions.toString());
     }
 }
